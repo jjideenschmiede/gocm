@@ -6,7 +6,7 @@ With this small library it should be possible to send SMS, WhatsApp & Co message
 
 ## Business Messaging
 
-In order to send one, or more messages via the Business Messages API, you can use the following function. Here you can find an additional description from the manufacturer.
+In order to send one, or more messages via the Business Messages API, you can use the following function. [Here](https://www.cm.com/app/docs/en/api/business-messaging-api/1.0/index#introduction) you can find an additional description from the manufacturer.
 
 Currently the following channels can be used: **WhatsApp, Push, RCS, Viber, SMS**
 
