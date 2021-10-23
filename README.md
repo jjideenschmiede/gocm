@@ -4,7 +4,15 @@
 
 With this small library it should be possible to send SMS, WhatsApp & Co messages via [cm.com](https://www.cm.com/de-de/). And, of course, to make other functions of the API usable.
 
-## Business Messaging
+## Install
+
+```console
+go get github.com/jjideenschmiede/gocm
+```
+
+## How to use?
+
+### Business Messaging
 
 In order to send one, or more messages via the Business Messages API, you can use the following function. [Here](https://www.cm.com/app/docs/en/api/business-messaging-api/1.0/index#introduction) you can find an additional description from the manufacturer.
 
@@ -12,28 +20,28 @@ Currently the following channels can be used: **WhatsApp, Push, RCS, Viber, SMS*
 
 ```go
 // Define body
-body := MessageBody{
-    Messages: MessageBodyMessages{
-        Authentication: MessageBodyAuthentication{
+body := gocm.MessageBody{
+    Messages: gocm.MessageBodyMessages{
+        Authentication: gocm.MessageBodyAuthentication{
             Producttoken: "",
         },
-        Msg: []MessageBodyMsg{},
+        Msg: []gocm.MessageBodyMsg{},
     },
 }
 
 // Create a message
-body.Messages.Msg = append(body.Messages.Msg, MessageBodyMsg{
+body.Messages.Msg = append(body.Messages.Msg, gocm.MessageBodyMsg{
     AllowedChannels: []string{"SMS"},
     From:            "Test",
-    To:              []MessageBodyTo{},
-    Body: MessageBodyBody{
+    To:              []gocm.MessageBodyTo{},
+    Body: gocm.MessageBodyBody{
         Type:    "auto",
         Content: "Test message",
     },
 })
 
 // Add receiver
-body.Messages.Msg[0].To = append(body.Messages.Msg[0].To, MessageBodyTo{
+body.Messages.Msg[0].To = append(body.Messages.Msg[0].To, gocm.MessageBodyTo{
     Number: "004941521234567",
 })
 
